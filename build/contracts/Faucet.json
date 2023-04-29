@@ -5,26 +5,34 @@
       "stateMutability": "payable",
       "type": "receive",
       "payable": true
+    },
+    {
+      "inputs": [],
+      "name": "addFunds",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function",
+      "payable": true
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/FaucetContract.sol\":\"Faucet\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/FaucetContract.sol\":{\"keccak256\":\"0x0130e09f6d019d289dd245d4786d434a39040211d984d608e1a2f7bda7daf4b4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0559bd2539f4390e035d3724bea728050b8e10db30f35f6abddc8a8b6316ab03\",\"dweb:/ipfs/QmfL6NUzCzmB8axj41ks6Fq5ft8bBbjAqYg4D3CVH21VtW\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50604580601d6000396000f3fe608060405236600a57005b600080fdfea26469706673582212207209c31eca8bc91e511f81330089223bfc2ce8c7efd6d2564cc5f3ca5f6bfe0364736f6c63430008040033",
-  "deployedBytecode": "0x608060405236600a57005b600080fdfea26469706673582212207209c31eca8bc91e511f81330089223bfc2ce8c7efd6d2564cc5f3ca5f6bfe0364736f6c63430008040033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"addFunds\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/FaucetContract.sol\":\"Faucet\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/FaucetContract.sol\":{\"keccak256\":\"0x2c3ae412e5faa8ca81ecab834e5f1921cc953a741c26960364dfff61af79a685\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c4bbbd23a70e20a43c7419cd147a3958203bcb023b35892b2c15d2f527f663d1\",\"dweb:/ipfs/Qme1otNctJuhGyuWxWF2brpm39V4VTW9KcniTNnJDVj7Fp\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50606a80601d6000396000f3fe608060405260043610601f5760003560e01c8063a26759cb14602a576025565b36602557005b600080fd5b60306032565b005b56fea26469706673582212201715e6329e3803dd0ddc5187d0bbb8057b8de7ac3c543e39ea42709f1626005d64736f6c63430008040033",
+  "deployedBytecode": "0x608060405260043610601f5760003560e01c8063a26759cb14602a576025565b36602557005b600080fd5b60306032565b005b56fea26469706673582212201715e6329e3803dd0ddc5187d0bbb8057b8de7ac3c543e39ea42709f1626005d64736f6c63430008040033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "69:52:0:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "69:52:0:-:0;;;;;;;;;;",
-  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\ncontract Faucet {\r\n  receive() external payable{}\r\n}",
+  "sourceMap": "69:190:0:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "69:190:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;218:38;;;:::i;:::-;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\ncontract Faucet {\r\n\r\n  //this is a special function \r\n  //it's called when you make a tx that dosen't specify\r\n\r\n  receive() external payable{}\r\n\r\n  function addFunds() external payable{}\r\n}",
   "sourcePath": "C:\\Users\\Dayo\\Desktop\\blockchain\\faucet\\contracts\\FaucetContract.sol",
   "ast": {
     "absolutePath": "project:/contracts/FaucetContract.sol",
     "exportedSymbols": {
       "Faucet": [
-        6
+        10
       ]
     },
-    "id": 7,
+    "id": 11,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -48,9 +56,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 6,
+        "id": 10,
         "linearizedBaseContracts": [
-          6
+          10
         ],
         "name": "Faucet",
         "nameLocation": "78:6:0",
@@ -60,7 +68,7 @@
             "body": {
               "id": 4,
               "nodeType": "Block",
-              "src": "116:2:0",
+              "src": "210:2:0",
               "statements": []
             },
             "id": 5,
@@ -74,27 +82,60 @@
               "id": 2,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "97:2:0"
+              "src": "191:2:0"
             },
             "returnParameters": {
               "id": 3,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "116:0:0"
+              "src": "210:0:0"
             },
-            "scope": 6,
-            "src": "90:28:0",
+            "scope": 10,
+            "src": "184:28:0",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 8,
+              "nodeType": "Block",
+              "src": "254:2:0",
+              "statements": []
+            },
+            "functionSelector": "a26759cb",
+            "id": 9,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addFunds",
+            "nameLocation": "227:8:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "235:2:0"
+            },
+            "returnParameters": {
+              "id": 7,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "254:0:0"
+            },
+            "scope": 10,
+            "src": "218:38:0",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 7,
-        "src": "69:52:0",
+        "scope": 11,
+        "src": "69:190:0",
         "usedErrors": []
       }
     ],
-    "src": "33:88:0"
+    "src": "33:226:0"
   },
   "compiler": {
     "name": "solc",
@@ -104,12 +145,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x9645165176424738e9bCE0CdD3150d596e33BaBa",
-      "transactionHash": "0xd7877d2dbe704c247384abfcc4242752bda944c0266d80e2050ed3d89ef6de06"
+      "address": "0x8e9DEaE87cEAFAd75046184db3975B7bf04f994e",
+      "transactionHash": "0x69e27dfb476c9aa4cfb213034678497ab4c0547dd081d421ae372d60ce7e5a57"
     }
   },
   "schemaVersion": "3.4.13",
-  "updatedAt": "2023-04-28T18:22:38.049Z",
+  "updatedAt": "2023-04-29T14:08:52.000Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

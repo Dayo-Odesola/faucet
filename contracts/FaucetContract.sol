@@ -7,4 +7,6 @@ contract Faucet {
   //it's called when you make a tx that dosen't specify
 
   receive() external payable{}
+
+  function addFunds() external payable{}
 }
