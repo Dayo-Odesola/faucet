@@ -3,27 +3,24 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract Faucet {
 
-  address[] private funders;
+  uint public numOfFunders;
+  mapping(uint => address) private funders;
 
   receive() external payable{}
 
   function addFunds() external payable{
-
-    funders.push(msg.sender);
+    uint index = numOfFunders++;
+    funders[index] = msg.sender;
   }
 
-  function getAllFunders() public view returns (address[] memory){
-    return funders;
-  }
 
   function getFunderAtIndex(uint8 index) external view  returns(address) {
-    address[] memory _funders = getAllFunders();
-    return _funders[index];
+    return funders[index];
   }
 
-  
 }
 
 
-// const instance = Faucet.deployed()
-// instance.addFunds({from: accounts[0], value: "2"})
+// const instance = await Faucet.deployed()
+// instance.addFunds({ from: accounts[0], value: "2000000000"})
+// instance.addFunds({ from: accounts[1], value: "2000000000"})
