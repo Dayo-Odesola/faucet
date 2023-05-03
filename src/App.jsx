@@ -12,10 +12,9 @@ function App() {
 
   useEffect(() => {
     const loadProvider = async () => {
-      // the latest metamask
       let provider = null;
       if(window.ethereum) {
-        provider.ethereum
+        provider = window.ethereum
 
         try {
           await provider.enable();
@@ -24,11 +23,9 @@ function App() {
           
         }
       }
-      // in case of lagacy metamasks
       else if(window.web3) {
         provider = window.web3.currentProvider
       }
-      // for ganache
       else if (!process.env.production) {
          provider = new Web3.providers.HTTPPrivider("http://localhost:7545")
       }
@@ -36,7 +33,6 @@ function App() {
 
     setWeb3Api({
       web3: new Web3(Web3.provider),
-      provider
     })
 
     loadProvider()
