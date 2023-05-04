@@ -2,6 +2,8 @@ import "./App.css"
 import { useState } from "react"
 import { useEffect } from "react"
 import Web3 from "web3"
+import detectEthereumProvider from '@metamask/detect-provider'
+
 
 function App() {
 
@@ -16,29 +18,20 @@ function App() {
 
   useEffect(() => {
     const loadProvider = async () => {
-      let provider = null;
-      if(window.ethereum) {
-        provider = window.ethereum
+      const provider = await detectEthereumProvider()
 
-        try {
-          await provider.request({ method: "eth_requestAccounts"})
-        } catch {
-          console.error("User denied accounts access")
-          
-        }
-      }
-      else if(window.web3) {
-        provider = window.web3.currentProvider
-      }
-      else if (!process.env.production) {
-         provider = new Web3.providers.HttpProvider("http://127.0.0.1:7545")
+      if(provider) {
+        await provider.request({ method: "eth_requestAccounts"})
+
+        setWeb3Api({
+          web3: new Web3(provider),
+          provider
+        })
+      } else {
+        console.error("Please install metamask")  
       }
 
-      setWeb3Api({
-        web3: new Web3(provider),
-        provider
-      })
-
+     
     }
 
 
